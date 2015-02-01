@@ -16,7 +16,7 @@
 */
 import SwiftyJSON
 
-public typealias JsonNode = JSON //[String: AnyObject]
+public typealias JsonNode = JSON
 
 public enum ReferenceToken {
     case StringToken(String)
@@ -25,27 +25,48 @@ public enum ReferenceToken {
 public typealias JsonPath = String
 
 public struct JsonPointer {
-    public let parent: JsonNode?
+    public let parent: JsonNode
     let key: ReferenceToken
     
-    public func get() -> JsonNode? {
-        if let parent = parent {
+    public func keyAsString() -> String {
+        switch key {
+        case .StringToken(let value):
+            return value
+        case .IntToken(let index):
+            return String(index)
+        }
+    }
+    
+    public func get() -> JsonNode {
+        switch key {
+        case .StringToken(let value) where value == "":
+            return parent
+        case .IntToken(let index):
+            let array: [AnyObject] = (parent.object as [String: AnyObject]).values.first as [AnyObject]
+            return JsonNode(array[index])
+        case .StringToken(let value) :
+            return parent[value]
+        }
+    }
+    
+    public func isEmpty() -> Bool {
+        return parent == nil
+    }
+    
+    public var isArray: Bool {
+        get {
             switch key {
-            case .StringToken(let value) where value == "":
-                return parent
-            case .IntToken(let index):
-                let array: [AnyObject] = (parent.object as [String: AnyObject]).values.first as [AnyObject]
-                return JsonNode(array[index])
-            case .StringToken(let value) :
-                return parent[value]
+            case .IntToken:
+                return true
+            case .StringToken:
+                return false
             }
         }
-        return nil
     }
 }
 
 // TODO escape
-func getJsonPathAsList(path: String) -> [String] {
+public func jsonPathAsList(path: String) -> [String] {
     if path == "" {
         return [""]
     }
@@ -53,11 +74,15 @@ func getJsonPathAsList(path: String) -> [String] {
 }
 
 public func findJsonPath(path: String, target: JsonNode) -> JsonPointer? {
-    let pathList = getJsonPathAsList(path)
-    if pathList.count == 1 && pathList[0] == "" {
+    let pathList = jsonPathAsList(path)
+    return findJsonPath(pathList, target)
+}
+
+public func findJsonPath(path: [String], target: JsonNode) -> JsonPointer? {
+    if path.count == 1 && path[0] == "" {
         return JsonPointer(parent: target, key: .StringToken(""))
     }
-    return findSubset(pathList, target)
+    return findSubset(path, target)
 }
 
 private func findSubset(pathList: [String], current: JsonNode) -> JsonPointer? {
@@ -88,7 +113,7 @@ private func findSubset(pathList: [String], current: JsonNode) -> JsonPointer? {
                 return findSubset(copyPathList, value)
             }
         }
-        // Leaf
+        // Last search element
         if (copyPathList.isEmpty) {
             return JsonPointer(parent: current, key: .StringToken(pathToLook))
         }

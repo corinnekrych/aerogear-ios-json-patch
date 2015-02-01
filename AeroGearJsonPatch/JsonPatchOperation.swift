@@ -27,15 +27,16 @@ public enum Operation: String {
 
 public protocol JsonPatchOperation {
     var op: Operation {get set}
-    var path: JsonPointer {get set}
+    var path: JsonPath {get set}
     var value: JsonNode {get set}
     
+    init(path: JsonPath, value: JsonNode)
     /**
     Apply this operation to a JSON value
     
-    :param: json node the value to patch
+    :param: node the value to patch
     :return: the patched value as json node
     */
-    func apply(json:JsonNode) -> JsonNode
+    func apply(node:JsonNode) -> JsonNode
 }
 

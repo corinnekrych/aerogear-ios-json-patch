@@ -50,9 +50,8 @@ class JsonPointerTests: XCTestCase {
         let path = "/foo"
         let node:JsonPointer? = findJsonPath(path, jsonRFC6901)
         if let node = node {
-            if let value = node.get() {
-                XCTAssertTrue(value[0].stringValue == "bar")
-            }
+            let value = node.get()
+            XCTAssertTrue(value[0].stringValue == "bar")
         }
     }
    
@@ -60,7 +59,7 @@ class JsonPointerTests: XCTestCase {
         let path = ""
         let node:JsonPointer? = findJsonPath(path, jsonRFC6901)
         if let node = node {
-            let value:JsonNode = node.get()!
+            let value:JsonNode = node.get()
             let count = value["foo"].count
             XCTAssertTrue(count == 2)
         }
@@ -72,8 +71,16 @@ class JsonPointerTests: XCTestCase {
         let node: JsonPointer? = findJsonPath(path, json)
         if let node = node {
             let value = node.get()
-            XCTAssertTrue(value?.stringValue == "yo")
+            XCTAssertTrue(value.stringValue == "yo")
         }
+    }
+    
+    func testFindInvalid() {
+        let path = "/foo/bar/boo"
+        let json = JsonNode(["foo": ["bar": "yo"], "boo": 2])
+        let node: JsonPointer? = findJsonPath(path, json)
+        XCTAssertTrue(node == nil)
+
     }
     
     func testFindIntElement() {
@@ -100,9 +107,7 @@ class JsonPointerTests: XCTestCase {
         let node: JsonPointer? = findJsonPath(path, json)
         if let node = node {
             let value = node.get()
-            if let value = value {
-                XCTAssertTrue(value["elt1"].string! == "elt2")
-            }
+            XCTAssertTrue(value["elt1"].string! == "elt2")
         }
     }
 
@@ -112,23 +117,19 @@ class JsonPointerTests: XCTestCase {
         let node:JsonPointer? = findJsonPath(path, json)
         if let node = node {
             let value = node.get()
-            if let value = value {
-                XCTAssertTrue(value.string == "s8")
-            }
+            XCTAssertTrue(value.string == "s8")
         } else {
             XCTFail("node /foo/bar/1/s7 should not be nil")
         }
     }
-
+    
     func testFindArrayElementAsInt() {
         let path = "/foo/bar/1"
-        let json = JsonNode(["foo": ["bar": [Int(1), 2]], "boo": 2])
+        let json = JsonNode(["foo": ["bar": [1, 2]], "boo": 2])
         let node:JsonPointer? = findJsonPath(path, json)
         if let node = node {
             let value = node.get()
-            if let value = value {
-                XCTAssertTrue(value.intValue == 2)
-            }
+            XCTAssertTrue(value.intValue == 2)
         } else {
             XCTFail("node /foo/bar/1 should not be nil")
         }
@@ -145,10 +146,8 @@ class JsonPointerTests: XCTestCase {
         let path = "/foo/bar/1"
         let json = JsonNode(["foo": ["bar": ["elt1", "elt2"]], "boo": 2])
         let node:JsonPointer? = findJsonPath(path, json)
-        
-        if let value = node?.get() {
-            XCTAssertTrue(value.stringValue == "elt2")
-        }        
+        let value = node?.get()
+        XCTAssertTrue(value?.stringValue == "elt2")
     }
     
 }

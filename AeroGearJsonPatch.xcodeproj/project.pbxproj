@@ -12,6 +12,7 @@
 		487442B81A7BF89200685F88 /* JsonPatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487442B71A7BF89200685F88 /* JsonPatch.swift */; };
 		487442BD1A7BF94A00685F88 /* AddJsonPatchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487442BC1A7BF94A00685F88 /* AddJsonPatchOperation.swift */; };
 		487442BF1A7C406000685F88 /* JsonPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487442BE1A7C406000685F88 /* JsonPointer.swift */; };
+		4897043A1A7EA30A00860266 /* AddJsonPatchOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489704391A7EA30A00860266 /* AddJsonPatchOperationTests.swift */; };
 		48ACC85F1A7BDF2B00AC5114 /* AeroGearJsonPatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 48ACC85E1A7BDF2B00AC5114 /* AeroGearJsonPatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48ACC8651A7BDF2B00AC5114 /* AeroGearJsonPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48ACC8591A7BDF2A00AC5114 /* AeroGearJsonPatch.framework */; };
 		48ACC86C1A7BDF2B00AC5114 /* JsonPointerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ACC86B1A7BDF2B00AC5114 /* JsonPointerTests.swift */; };
@@ -32,6 +33,7 @@
 		487442B71A7BF89200685F88 /* JsonPatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPatch.swift; sourceTree = "<group>"; };
 		487442BC1A7BF94A00685F88 /* AddJsonPatchOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddJsonPatchOperation.swift; sourceTree = "<group>"; };
 		487442BE1A7C406000685F88 /* JsonPointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPointer.swift; sourceTree = "<group>"; };
+		489704391A7EA30A00860266 /* AddJsonPatchOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddJsonPatchOperationTests.swift; sourceTree = "<group>"; };
 		48ACC8591A7BDF2A00AC5114 /* AeroGearJsonPatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AeroGearJsonPatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48ACC85D1A7BDF2B00AC5114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48ACC85E1A7BDF2B00AC5114 /* AeroGearJsonPatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AeroGearJsonPatch.h; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				48ACC86B1A7BDF2B00AC5114 /* JsonPointerTests.swift */,
+				489704391A7EA30A00860266 /* AddJsonPatchOperationTests.swift */,
 				48ACC8691A7BDF2B00AC5114 /* Supporting Files */,
 			);
 			path = AeroGearJsonPatchTests;
@@ -395,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4897043A1A7EA30A00860266 /* AddJsonPatchOperationTests.swift in Sources */,
 				48ACC86C1A7BDF2B00AC5114 /* JsonPointerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
