@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31A1836F86E0125A6671A1B3 /* Pods_AeroGearJsonPatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC69C8D8065DFC976B3380B /* Pods_AeroGearJsonPatchTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4310E30B8666C6AB994BF739 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF12811C738402FE3828415 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		487442B81A7BF89200685F88 /* JsonPatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487442B71A7BF89200685F88 /* JsonPatch.swift */; };
 		487442BD1A7BF94A00685F88 /* AddJsonPatchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487442BC1A7BF94A00685F88 /* AddJsonPatchOperation.swift */; };
 		487442BF1A7C406000685F88 /* JsonPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487442BE1A7C406000685F88 /* JsonPointer.swift */; };
-		487442C21A7E68AB00685F88 /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487442C11A7E68AB00685F88 /* Json.swift */; };
 		48ACC85F1A7BDF2B00AC5114 /* AeroGearJsonPatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 48ACC85E1A7BDF2B00AC5114 /* AeroGearJsonPatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48ACC8651A7BDF2B00AC5114 /* AeroGearJsonPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48ACC8591A7BDF2A00AC5114 /* AeroGearJsonPatch.framework */; };
 		48ACC86C1A7BDF2B00AC5114 /* JsonPointerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ACC86B1A7BDF2B00AC5114 /* JsonPointerTests.swift */; };
@@ -31,7 +32,6 @@
 		487442B71A7BF89200685F88 /* JsonPatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPatch.swift; sourceTree = "<group>"; };
 		487442BC1A7BF94A00685F88 /* AddJsonPatchOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddJsonPatchOperation.swift; sourceTree = "<group>"; };
 		487442BE1A7C406000685F88 /* JsonPointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPointer.swift; sourceTree = "<group>"; };
-		487442C11A7E68AB00685F88 /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		48ACC8591A7BDF2A00AC5114 /* AeroGearJsonPatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AeroGearJsonPatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48ACC85D1A7BDF2B00AC5114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48ACC85E1A7BDF2B00AC5114 /* AeroGearJsonPatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AeroGearJsonPatch.h; sourceTree = "<group>"; };
@@ -39,6 +39,12 @@
 		48ACC86A1A7BDF2B00AC5114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48ACC86B1A7BDF2B00AC5114 /* JsonPointerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonPointerTests.swift; sourceTree = "<group>"; };
 		48ACC8771A7BEA4A00AC5114 /* JsonPatchOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPatchOperation.swift; sourceTree = "<group>"; };
+		6A2F5A1F7EF978468E1D4018 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7F08FF2D4F734027C25B21C8 /* Pods-AeroGearJsonPatchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroGearJsonPatchTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AeroGearJsonPatchTests/Pods-AeroGearJsonPatchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		ACC69C8D8065DFC976B3380B /* Pods_AeroGearJsonPatchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AeroGearJsonPatchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBBABC8E1146195546EF107E /* Pods-AeroGearJsonPatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AeroGearJsonPatchTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AeroGearJsonPatchTests/Pods-AeroGearJsonPatchTests.release.xcconfig"; sourceTree = "<group>"; };
+		EEF12811C738402FE3828415 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F66CD4DF7526C6889319D352 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4310E30B8666C6AB994BF739 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,12 +61,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				48ACC8651A7BDF2B00AC5114 /* AeroGearJsonPatch.framework in Frameworks */,
+				31A1836F86E0125A6671A1B3 /* Pods_AeroGearJsonPatchTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1EA01F45258F376B31E7CB4C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F66CD4DF7526C6889319D352 /* Pods.debug.xcconfig */,
+				6A2F5A1F7EF978468E1D4018 /* Pods.release.xcconfig */,
+				7F08FF2D4F734027C25B21C8 /* Pods-AeroGearJsonPatchTests.debug.xcconfig */,
+				BBBABC8E1146195546EF107E /* Pods-AeroGearJsonPatchTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		487442B91A7BF8D600685F88 /* PatchOperation */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,7 +106,6 @@
 		487442C01A7C406E00685F88 /* JsonPointer */ = {
 			isa = PBXGroup;
 			children = (
-				487442C11A7E68AB00685F88 /* Json.swift */,
 				487442BE1A7C406000685F88 /* JsonPointer.swift */,
 			);
 			name = JsonPointer;
@@ -99,6 +117,8 @@
 				48ACC85B1A7BDF2A00AC5114 /* AeroGearJsonPatch */,
 				48ACC8681A7BDF2B00AC5114 /* AeroGearJsonPatchTests */,
 				48ACC85A1A7BDF2A00AC5114 /* Products */,
+				1EA01F45258F376B31E7CB4C /* Pods */,
+				9A0C954FF7808DC59572DDE0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +169,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9A0C954FF7808DC59572DDE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EEF12811C738402FE3828415 /* Pods.framework */,
+				ACC69C8D8065DFC976B3380B /* Pods_AeroGearJsonPatchTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -167,10 +196,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48ACC86F1A7BDF2B00AC5114 /* Build configuration list for PBXNativeTarget "AeroGearJsonPatch" */;
 			buildPhases = (
+				F39878299CCF87F19B0D1271 /* Check Pods Manifest.lock */,
 				48ACC8541A7BDF2A00AC5114 /* Sources */,
 				48ACC8551A7BDF2A00AC5114 /* Frameworks */,
 				48ACC8561A7BDF2A00AC5114 /* Headers */,
 				48ACC8571A7BDF2A00AC5114 /* Resources */,
+				144D693A583B69C608B7FA7B /* Embed Pods Frameworks */,
+				80E7D5F95EB92081B7B507B9 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,9 +217,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48ACC8721A7BDF2B00AC5114 /* Build configuration list for PBXNativeTarget "AeroGearJsonPatchTests" */;
 			buildPhases = (
+				2A467CAF326B9C47C6D4426A /* Check Pods Manifest.lock */,
 				48ACC8601A7BDF2B00AC5114 /* Sources */,
 				48ACC8611A7BDF2B00AC5114 /* Frameworks */,
 				48ACC8621A7BDF2B00AC5114 /* Resources */,
+				01465E282E92F0E86B68E06D /* Embed Pods Frameworks */,
+				8B3F7F661C26CF71E8F979B2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,13 +286,105 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01465E282E92F0E86B68E06D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AeroGearJsonPatchTests/Pods-AeroGearJsonPatchTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		144D693A583B69C608B7FA7B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A467CAF326B9C47C6D4426A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		80E7D5F95EB92081B7B507B9 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B3F7F661C26CF71E8F979B2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AeroGearJsonPatchTests/Pods-AeroGearJsonPatchTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F39878299CCF87F19B0D1271 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		48ACC8541A7BDF2A00AC5114 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				487442B81A7BF89200685F88 /* JsonPatch.swift in Sources */,
-				487442C21A7E68AB00685F88 /* Json.swift in Sources */,
 				48ACC8781A7BEA4A00AC5114 /* JsonPatchOperation.swift in Sources */,
 				487442BD1A7BF94A00685F88 /* AddJsonPatchOperation.swift in Sources */,
 				487442BF1A7C406000685F88 /* JsonPointer.swift in Sources */,
@@ -370,6 +497,7 @@
 		};
 		48ACC8701A7BDF2B00AC5114 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F66CD4DF7526C6889319D352 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -387,6 +515,7 @@
 		};
 		48ACC8711A7BDF2B00AC5114 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A2F5A1F7EF978468E1D4018 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -403,6 +532,7 @@
 		};
 		48ACC8731A7BDF2B00AC5114 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F08FF2D4F734027C25B21C8 /* Pods-AeroGearJsonPatchTests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -420,6 +550,7 @@
 		};
 		48ACC8741A7BDF2B00AC5114 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBBABC8E1146195546EF107E /* Pods-AeroGearJsonPatchTests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

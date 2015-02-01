@@ -14,8 +14,9 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+import SwiftyJSON
 
-public typealias JsonNode = [String: AnyObject]
+public typealias JsonNode = JSON //[String: AnyObject]
 
 public enum ReferenceToken {
     case StringToken(String)
@@ -23,20 +24,20 @@ public enum ReferenceToken {
 }
 public typealias JsonPath = String
 
-public struct JsonPointer<T: Json> {
+public struct JsonPointer {
     public let parent: JsonNode?
     let key: ReferenceToken
     
-    public func get() -> T? {
+    public func get() -> JsonNode? {
         if let parent = parent {
             switch key {
             case .StringToken(let value) where value == "":
-                return parent as? T
+                return parent
             case .IntToken(let index):
-                let array: [AnyObject] = parent.values.first as [AnyObject]
-                return array[index] as? T
+                let array: [AnyObject] = (parent.object as [String: AnyObject]).values.first as [AnyObject]
+                return JsonNode(array[index])
             case .StringToken(let value) :
-                return parent[value] as? T
+                return parent[value]
             }
         }
         return nil
@@ -51,7 +52,7 @@ func getJsonPathAsList(path: String) -> [String] {
     return split(path) {$0 == "/"}
 }
 
-public func findJsonPath<T: Json>(path: String, target: JsonNode) -> JsonPointer<T>? {
+public func findJsonPath(path: String, target: JsonNode) -> JsonPointer? {
     let pathList = getJsonPathAsList(path)
     if pathList.count == 1 && pathList[0] == "" {
         return JsonPointer(parent: target, key: .StringToken(""))
@@ -59,14 +60,14 @@ public func findJsonPath<T: Json>(path: String, target: JsonNode) -> JsonPointer
     return findSubset(pathList, target)
 }
 
-private func findSubset<T: Json>(pathList: [String], current: JsonNode) -> JsonPointer<T>? {
+private func findSubset(pathList: [String], current: JsonNode) -> JsonPointer? {
     var copyPathList = pathList
     let pathToLook = copyPathList.removeAtIndex(0)
-    let value: AnyObject? = current[pathToLook]
+    let value = current[pathToLook]
     
-    if value != nil {
+    if value != JSON.nullJSON {
         // Array case
-        if let valueArray = value as? [AnyObject] {
+        if let valueArray = value.array {
             if !copyPathList.isEmpty {
                 let nextPath = copyPathList.removeAtIndex(0)
                 if let nextInt = nextPath.toInt() {
@@ -74,7 +75,7 @@ private func findSubset<T: Json>(pathList: [String], current: JsonNode) -> JsonP
                         return nil
                     }
                     if copyPathList.isEmpty { // array is a leaf
-                        return JsonPointer<T>(parent: current, key: .IntToken(nextInt))
+                        return JsonPointer(parent: current, key: .IntToken(nextInt))
                     } else { // array of object
                         return findSubset(copyPathList, valueArray[nextInt] as JsonNode)
                     }
@@ -82,12 +83,14 @@ private func findSubset<T: Json>(pathList: [String], current: JsonNode) -> JsonP
             }
         }
         // Dictionary
-        if (value is [String: AnyObject] && !copyPathList.isEmpty) {
-            return findSubset(copyPathList, value! as JsonNode)
+        if  value.dictionary != nil {
+            if !copyPathList.isEmpty {
+                return findSubset(copyPathList, value)
+            }
         }
         // Leaf
         if (copyPathList.isEmpty) {
-            return JsonPointer<T>(parent: current, key: .StringToken(pathToLook))
+            return JsonPointer(parent: current, key: .StringToken(pathToLook))
         }
     } 
     return nil

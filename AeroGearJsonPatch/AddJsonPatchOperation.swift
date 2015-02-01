@@ -15,12 +15,12 @@
 * limitations under the License.
 */
 
-public struct AddJsonPatchOperation: Printable {
+public struct AddJsonPatchOperation {
     public let op: Operation
-    public let path: JsonPointer<Unkown>
+    public let path: JsonPointer
     public let value: JsonNode
     
-    public init(path: JsonPointer<Unkown>, value: JsonNode) {
+    public init(path: JsonPointer, value: JsonNode) {
         self.op = Operation.Add
         self.path = path
         self.value = value
@@ -33,11 +33,8 @@ public struct AddJsonPatchOperation: Printable {
     :return: the patched value as json node
     */
     func apply(json:JsonNode) -> JsonNode {
+        
         return [:]
-    }
-    
-    public var description: String {
-        return ""
     }
 }
 

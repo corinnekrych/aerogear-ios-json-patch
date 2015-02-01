@@ -27,7 +27,7 @@ public enum Operation: String {
 
 public protocol JsonPatchOperation {
     var op: Operation {get set}
-    var path: JsonPointer<Unkown> {get set}
+    var path: JsonPointer {get set}
     var value: JsonNode {get set}
     
     /**
