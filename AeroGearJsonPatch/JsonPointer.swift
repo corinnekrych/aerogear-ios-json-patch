@@ -23,8 +23,12 @@ public enum ReferenceToken {
 }
 public typealias JsonPath = String
 
+/**
+Json Pointer as described in https://tools.ietf.org/html/rfc6901:
+a string syntax for identifying a specific value within a JSON document.
+*/
 public struct JsonPointer<T: Json> {
-    public let parent: JsonNode?
+    public var parent: JsonNode?
     let key: ReferenceToken
     
     public func get() -> T? {
