@@ -34,14 +34,14 @@ public class AddJsonPatchOperation: JsonPatchOperation {
     :return: the patched value as json node
     */
     public func apply(node:JsonNode) -> JsonNode {
-        var pointer: JsonPointer? = findJsonPath(path, node)
+        let pointer: JsonPointer? = findJsonPath(path, target: node)
         if pointer != nil { // element already exist, will be replaced
             //assert(pointer.isEmpty(), "ADD patch could not be applied")
             return pointer!.isArray ? addToArray(pointer!, node: node) : addToObject(pointer!, value: value)
         } else { // element not does already exist
             var paths = jsonPathAsList(path)
-            var element = paths.removeLast()
-            if let parentPointer = findJsonPath(path, node) {
+            _ = paths.removeLast()
+            if let parentPointer = findJsonPath(path, target: node) {
                 return parentPointer.isArray ? addToArray(parentPointer, node: node) : addToObject(parentPointer, value: node)
             } else {
                 assert(true, "ADD patch could not be applied")
@@ -56,11 +56,11 @@ public class AddJsonPatchOperation: JsonPatchOperation {
     }
     
     func addToObject(pointer: JsonPointer, value: JsonNode) -> JsonNode {
-        println("Node::\(value)")
+        print("Node::\(value)")
         var parent = pointer.parent
-        println("Pointer.parent::\(parent)")
+        print("Pointer.parent::\(parent)")
         parent = value
-        println("NewNOde::\(parent)")
+        print("NewNOde::\(parent)")
         return parent
         
     }

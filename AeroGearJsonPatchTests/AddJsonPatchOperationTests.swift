@@ -35,11 +35,11 @@ class AddJsonPatchOperationTests: XCTestCase {
     
     func testAddObjectAlreadyExist() {
         let path = "/foo/bar"
-        var node = JsonNode(["foo": ["bar": "yo"], "boo": 2])
+        let node = JsonNode(["foo": ["bar": "yo"], "boo": 2])
         let valueToAdd = JsonNode(["winter": ["tempMin": 12]])
         
         let addOperation = AddJsonPatchOperation(path: path, value: valueToAdd)        
-        let newObject = addOperation.apply(node)
+        _ = addOperation.apply(node)
         
         //XCTAssertTrue(newObject["foo"]["winter"]["tempMin"].intValue == 12)
 

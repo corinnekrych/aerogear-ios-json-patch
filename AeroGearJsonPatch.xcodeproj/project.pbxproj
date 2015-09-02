@@ -33,6 +33,7 @@
 		487442B71A7BF89200685F88 /* JsonPatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPatch.swift; sourceTree = "<group>"; };
 		487442BC1A7BF94A00685F88 /* AddJsonPatchOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddJsonPatchOperation.swift; sourceTree = "<group>"; };
 		487442BE1A7C406000685F88 /* JsonPointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonPointer.swift; sourceTree = "<group>"; };
+		4886A1141B97767D00E8C54D /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		489704391A7EA30A00860266 /* AddJsonPatchOperationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddJsonPatchOperationTests.swift; sourceTree = "<group>"; };
 		48ACC8591A7BDF2A00AC5114 /* AeroGearJsonPatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AeroGearJsonPatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48ACC85D1A7BDF2B00AC5114 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -175,6 +176,7 @@
 		9A0C954FF7808DC59572DDE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4886A1141B97767D00E8C54D /* SwiftyJSON.framework */,
 				EEF12811C738402FE3828415 /* Pods.framework */,
 				ACC69C8D8065DFC976B3380B /* Pods_AeroGearJsonPatchTests.framework */,
 			);
@@ -508,6 +510,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = AeroGearJsonPatch/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -526,6 +532,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = AeroGearJsonPatch/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

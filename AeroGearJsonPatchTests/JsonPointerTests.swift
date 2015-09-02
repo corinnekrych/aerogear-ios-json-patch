@@ -48,7 +48,7 @@ class JsonPointerTests: XCTestCase {
     
     func testGetFooElement() {
         let path = "/foo"
-        let node:JsonPointer? = findJsonPath(path, jsonRFC6901)
+        let node:JsonPointer? = findJsonPath(path, target: jsonRFC6901)
         if let node = node {
             let value = node.get()
             XCTAssertTrue(value[0].stringValue == "bar")
@@ -57,7 +57,7 @@ class JsonPointerTests: XCTestCase {
    
     func testFootElement() {
         let path = ""
-        let node:JsonPointer? = findJsonPath(path, jsonRFC6901)
+        let node:JsonPointer? = findJsonPath(path, target: jsonRFC6901)
         if let node = node {
             let value:JsonNode = node.get()
             let count = value["foo"].count
@@ -68,7 +68,7 @@ class JsonPointerTests: XCTestCase {
     func testFindLastElement() {
         let path = "/foo/bar"
         let json = JsonNode(["foo": ["bar": "yo"], "boo": 2])
-        let node: JsonPointer? = findJsonPath(path, json)
+        let node: JsonPointer? = findJsonPath(path, target: json)
         if let node = node {
             let value = node.get()
             XCTAssertTrue(value.stringValue == "yo")
@@ -78,7 +78,7 @@ class JsonPointerTests: XCTestCase {
     func testFindInvalid() {
         let path = "/foo/bar/boo"
         let json = JsonNode(["foo": ["bar": "yo"], "boo": 2])
-        let node: JsonPointer? = findJsonPath(path, json)
+        let node: JsonPointer? = findJsonPath(path, target: json)
         XCTAssertTrue(node == nil)
 
     }
@@ -86,7 +86,7 @@ class JsonPointerTests: XCTestCase {
     func testFindIntElement() {
         let path = "/foo/boo"
         let json = JsonNode(["foo": ["bar": "yo"], "boo": 2])
-        let node: JsonPointer? = findJsonPath(path, json)
+        let node: JsonPointer? = findJsonPath(path, target: json)
         if let node = node {
             let value = node.get()
             XCTAssertTrue(value == 2)
@@ -97,14 +97,14 @@ class JsonPointerTests: XCTestCase {
     func testNoElementFound() {
         let path = "/foor/bar"
         let json = JsonNode(["foo": ["bar": "yo"], "boo": 2])
-        let node: JsonPointer? = findJsonPath(path, json)
+        let node: JsonPointer? = findJsonPath(path, target: json)
         XCTAssertTrue(node == nil)
     }
 
     func testElementAsDictionary() {
         let path = "/foo/bar"
         let json = JsonNode(["foo": ["bar": ["elt1": "elt2"]], "boo": 2])
-        let node: JsonPointer? = findJsonPath(path, json)
+        let node: JsonPointer? = findJsonPath(path, target: json)
         if let node = node {
             let value = node.get()
             XCTAssertTrue(value["elt1"].string! == "elt2")
@@ -114,7 +114,7 @@ class JsonPointerTests: XCTestCase {
     func testFindArrayElement() {
         let path = "/foo/bar/1/s7"
         let json = JsonNode(["foo": ["bar": [["s1":"s2", "s3": "s4"], ["s5":"s6", "s7": "s8"]]], "boo": 2])
-        let node:JsonPointer? = findJsonPath(path, json)
+        let node:JsonPointer? = findJsonPath(path, target: json)
         if let node = node {
             let value = node.get()
             XCTAssertTrue(value.string == "s8")
@@ -126,7 +126,7 @@ class JsonPointerTests: XCTestCase {
     func testFindArrayElementAsInt() {
         let path = "/foo/bar/1"
         let json = JsonNode(["foo": ["bar": [1, 2]], "boo": 2])
-        let node:JsonPointer? = findJsonPath(path, json)
+        let node:JsonPointer? = findJsonPath(path, target: json)
         if let node = node {
             let value = node.get()
             XCTAssertTrue(value.intValue == 2)
@@ -138,14 +138,14 @@ class JsonPointerTests: XCTestCase {
     func testFindArrayElementOutOfBound() {
         let path = "/foo/bar/50"
         let json = JsonNode(["foo": ["bar": [1, 2]], "boo": 2])
-        let node:JsonPointer? = findJsonPath(path, json)
+        let node:JsonPointer? = findJsonPath(path, target: json)
         XCTAssertTrue(node == nil)
     }
     
     func testFindArrayElementFinal() {
         let path = "/foo/bar/1"
         let json = JsonNode(["foo": ["bar": ["elt1", "elt2"]], "boo": 2])
-        let node:JsonPointer? = findJsonPath(path, json)
+        let node:JsonPointer? = findJsonPath(path, target: json)
         let value = node?.get()
         XCTAssertTrue(value?.stringValue == "elt2")
     }

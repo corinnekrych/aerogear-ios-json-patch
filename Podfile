@@ -4,8 +4,8 @@ xcodeproj 'AeroGearJsonPatch.xcodeproj'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'SwiftyJSON', '2.1.3'
+pod 'SwiftyJSON', :git => 'git@github.com:SwiftyJSON/SwiftyJSON.git', :branch => 'xcode7'
 
 target 'AeroGearJsonPatchTests' do
-	pod 'SwiftyJSON', '2.1.3'
+	pod 'SwiftyJSON', :git => 'git@github.com:SwiftyJSON/SwiftyJSON.git', :branch => 'xcode7'
 end

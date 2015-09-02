@@ -42,7 +42,7 @@ public struct JsonPointer {
         case .StringToken(let value) where value == "":
             return parent
         case .IntToken(let index):
-            let array: [AnyObject] = (parent.object as [String: AnyObject]).values.first as [AnyObject]
+            let array: [AnyObject] = (parent.object as! [String: AnyObject]).values.first as! [AnyObject]
             return JsonNode(array[index])
         case .StringToken(let value) :
             return parent[value]
@@ -70,19 +70,19 @@ public func jsonPathAsList(path: String) -> [String] {
     if path == "" {
         return [""]
     }
-    return split(path) {$0 == "/"}
+    return path.characters.split {$0 == "/"}.map{String($0)}
 }
 
 public func findJsonPath(path: String, target: JsonNode) -> JsonPointer? {
     let pathList = jsonPathAsList(path)
-    return findJsonPath(pathList, target)
+    return findJsonPath(pathList, target: target)
 }
 
 public func findJsonPath(path: [String], target: JsonNode) -> JsonPointer? {
     if path.count == 1 && path[0] == "" {
         return JsonPointer(parent: target, key: .StringToken(""))
     }
-    return findSubset(path, target)
+    return findSubset(path, current: target)
 }
 
 private func findSubset(pathList: [String], current: JsonNode) -> JsonPointer? {
@@ -90,33 +90,41 @@ private func findSubset(pathList: [String], current: JsonNode) -> JsonPointer? {
     let pathToLook = copyPathList.removeAtIndex(0)
     let value = current[pathToLook]
     
-    if value != JSON.nullJSON {
-        // Array case
-        if let valueArray = value.array {
-            if !copyPathList.isEmpty {
+    if value != JSON.null {
+        if !copyPathList.isEmpty {
+            // Array case
+            if let valueArray = value.array {
                 let nextPath = copyPathList.removeAtIndex(0)
-                if let nextInt = nextPath.toInt() {
+                if let nextInt = Int(nextPath) {
                     if nextInt >= valueArray.count { // array out of bound
                         return nil
                     }
                     if copyPathList.isEmpty { // array is a leaf
                         return JsonPointer(parent: current, key: .IntToken(nextInt))
                     } else { // array of object
-                        return findSubset(copyPathList, valueArray[nextInt] as JsonNode)
+                        return findSubset(copyPathList, current: valueArray[nextInt] as JsonNode)
                     }
                 }
             }
-        }
-        // Dictionary
-        if  value.dictionary != nil {
-            if !copyPathList.isEmpty {
-                return findSubset(copyPathList, value)
+            // Dictionary
+            if  value.dictionary != nil {
+                return findSubset(copyPathList, current: value)
+                
             }
-        }
-        // Last search element
-        if (copyPathList.isEmpty) {
+        } else {// copyPathList.isEmpty == true
+            // Last search element
             return JsonPointer(parent: current, key: .StringToken(pathToLook))
         }
     } 
     return nil
 }
+/*
+private func remove(path: [String], target: JsonNode) -> JsonNode {
+    var newNode = target
+    let toBeRemoved = findJsonPath(path, target: target)
+    newNode.reduce(JsonNode(), combine: { (acc: JsonNode, elt: JsonNode) -> JsonNode in
+        acc.append(elt)
+    })
+    return newNode
+}
+*/
